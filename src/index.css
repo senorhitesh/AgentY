@@ -1,0 +1,291 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-bodoni: 'Bodoni Moda', 'Cormorant Garamond', Georgia, serif;
+    --font-cinzel: 'Cinzel', Georgia, serif;
+    --font-display: 'Italiana', 'Bodoni Moda', 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    
+    --canvas-bg: #FBF9F5;
+    --canvas-subtle: #F4EFEA;
+    --canvas-card: #FFFFFF;
+    --ink-primary: #151413;
+    --ink-secondary: #58534C;
+    --ink-muted: #968F84;
+    --border-light: rgba(21, 20, 19, 0.08);
+    --border-hover: rgba(21, 20, 19, 0.22);
+  }
+
+  html {
+    background-color: var(--canvas-bg);
+    color: var(--ink-primary);
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    selection-background-color: #C79238;
+    selection-color: #ffffff;
+  }
+
+  ::selection {
+    background: #C79238;
+    color: #FFFFFF;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: var(--canvas-bg);
+    cursor: none !important;
+  }
+
+  /* Universal Native Windows Cursor Suppression: Never show OS cursor anywhere on the site */
+  *,
+  *::before,
+  *::after,
+  html,
+  body,
+  button,
+  a,
+  input,
+  textarea,
+  select,
+  canvas {
+    cursor: none !important;
+  }
+}
+
+/* Typography Helpers */
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-bodoni {
+  font-family: var(--font-bodoni);
+}
+
+.font-cinzel {
+  font-family: var(--font-cinzel);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+/* Linen Canvas Texture Overlay */
+.linen-texture {
+  background-image: 
+    radial-gradient(rgba(30, 26, 22, 0.035) 1px, transparent 0),
+    radial-gradient(rgba(30, 26, 22, 0.02) 1px, transparent 0);
+  background-size: 24px 24px, 12px 12px;
+  background-position: 0 0, 6px 6px;
+}
+
+/* Subtle Organic Oil Glaze Animations */
+@keyframes floatGlaze {
+  0% {
+    transform: translate(0px, 0px) scale(1) rotate(0deg);
+  }
+  33% {
+    transform: translate(30px, -40px) scale(1.08) rotate(4deg);
+  }
+  66% {
+    transform: translate(-25px, 20px) scale(0.95) rotate(-3deg);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1) rotate(0deg);
+  }
+}
+
+.animate-glaze-slow {
+  animation: floatGlaze 22s steps(528, end) infinite;
+}
+
+.animate-glaze-reverse {
+  animation: floatGlaze 28s steps(672, end) infinite reverse;
+}
+
+/* Liquid Venetian Gold Shimmer for Loading Typography (Locked 24fps) */
+@keyframes shimmerText {
+  0% {
+    background-position: 150% 0;
+  }
+  100% {
+    background-position: -150% 0;
+  }
+}
+
+.animate-shimmer-text {
+  background: linear-gradient(90deg, #151413 0%, #151413 30%, #C79238 48%, #DFBA5A 52%, #151413 70%, #151413 100%);
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmerText 3.4s steps(82, end) infinite;
+}
+
+/* Hairline dividers that mimic pencil markings on canvas */
+.canvas-hairline {
+  border-color: rgba(22, 20, 18, 0.08);
+}
+
+.canvas-hairline-strong {
+  border-color: rgba(22, 20, 18, 0.16);
+}
+
+/* Minimal Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FBF9F5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D8CFBE;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #B8A992;
+}
+
+/* Scrollbar suppression helper */
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+.no-scrollbar {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+/* Editorial Mask Reveal */
+.editorial-reveal {
+  clip-path: inset(0 0 0 0);
+  transition: clip-path 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
+/* Artisanal Soundwave Equalizer Bars Animation (Smooth 60fps) */
+@keyframes atelierSoundbar1 {
+  0%, 100% { height: 5px; }
+  50% { height: 15px; }
+}
+@keyframes atelierSoundbar2 {
+  0%, 100% { height: 16px; }
+  50% { height: 7px; }
+}
+@keyframes atelierSoundbar3 {
+  0%, 100% { height: 6px; }
+  50% { height: 14px; }
+}
+@keyframes atelierSoundbar4 {
+  0%, 100% { height: 13px; }
+  50% { height: 4px; }
+}
+
+.animate-soundbar-1 {
+  animation: atelierSoundbar1 0.95s steps(23, end) infinite;
+}
+.animate-soundbar-2 {
+  animation: atelierSoundbar2 0.80s steps(19, end) infinite 0.12s;
+}
+.animate-soundbar-3 {
+  animation: atelierSoundbar3 1.10s steps(26, end) infinite 0.25s;
+}
+.animate-soundbar-4 {
+  animation: atelierSoundbar4 0.88s steps(21, end) infinite 0.38s;
+}
+
+/* Curatorial Dossier Modal Entrance Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.97) translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Infinite Archival Gallery Stream (Right to Left) */
+@keyframes galleryFlowLeft {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-gallery-flow {
+  animation: galleryFlowLeft 46s steps(1104, end) infinite;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.animate-gallery-flow-slower {
+  animation: galleryFlowLeft 54s steps(1296, end) infinite;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Pause flow smoothly on track hover so viewer can inspect artwork */
+.gallery-stream:hover {
+  animation-play-state: paused !important;
+}
+
+/* Monumental Gallery Title Gold Sheen (Locked 24fps) */
+@keyframes galleryTextGlint {
+  0% {
+    background-position: 250% 0;
+  }
+  50% {
+    background-position: -50% 0;
+  }
+  100% {
+    background-position: -250% 0;
+  }
+}
+
+.animate-gallery-title-sheen {
+  background: linear-gradient(
+    105deg,
+    #151413 0%,
+    #151413 36%,
+    #B5822E 46%,
+    #F3DE9C 50%,
+    #C79238 54%,
+    #151413 64%,
+    #151413 100%
+  );
+  background-size: 320% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: galleryTextGlint 12s steps(288, end) infinite;
+}
+
+
+
+
